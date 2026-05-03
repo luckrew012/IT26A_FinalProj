@@ -473,7 +473,7 @@
 <span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
 </button>
 </div>
-</div>
+</div> 
 </div>
 </div>
 </main>
