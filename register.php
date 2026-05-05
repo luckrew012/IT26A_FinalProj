@@ -14,7 +14,7 @@ $error = isset($_GET['error']) ? $_GET['error'] : '';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register - Subdivision Homeowner Record System</title>
-    <link rel="stylesheet" href="assets/css/auth.css">
+    <link rel="stylesheet" href="assets/auth.css">
 </head>
 <body>
     <div class="auth-container">
