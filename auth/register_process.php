@@ -32,7 +32,7 @@ if ($password !== $confirm_password) {
 }
 
 // Check if username exists
-$stmt = $conn->prepare("SELECT id FROM users WHERE username = ?");
+$stmt = $conn->prepare("SELECT userID FROM users WHERE username = ?");
 $stmt->bind_param("s", $username);
 $stmt->execute();
 
@@ -42,9 +42,9 @@ if ($stmt->get_result()->num_rows > 0) {
 }
 
 // Create new user
-$hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
 $stmt = $conn->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
-$stmt->bind_param("ss", $username, $hashed_password);
+$stmt->bind_param("ss", $username, $password);
 
 if ($stmt->execute()) {
     header("Location: ../login.php?success=Registration successful! Please login.");

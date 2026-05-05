@@ -15,9 +15,9 @@ $pending_complaints = $conn->query("SELECT COUNT(*) as count FROM complaints WHE
 
 // Chart data
 $blocks_query = $conn->query("
-    SELECT h.block, COUNT(r.id) as resident_count 
+    SELECT h.block, COUNT(r.residentID) as resident_count 
     FROM houses h 
-    LEFT JOIN residents r ON h.id = r.house_id 
+    LEFT JOIN residents r ON h.houseID = r.houseID 
     GROUP BY h.block 
     ORDER BY h.block
 ");
