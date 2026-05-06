@@ -35,7 +35,7 @@ $flash = getFlashMessage();
             <form action="register_process.php" method="POST">
                 <div class="form-group">
                     <label for="full_name">Full Name</label>
-                    <input type="text" id="full_name" name="full_name" class="form-control" placeholder="John Doe" required>
+                    <input type="text" id="full_name" name="full_name" class="form-control" placeholder="Input full name" required>
                 </div>
 
                 <div class="form-group">

@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 $full_name = sanitize($_POST['full_name'] ?? '');
 $username = sanitize($_POST['username'] ?? '');
-$password = $_POST['password'] ?? ''; // No hashing applied
+$password = $_POST['password'] ?? ''; 
 $confirm_password = $_POST['confirm_password'] ?? '';
 
 if (empty($full_name) || empty($username) || empty($password)) {

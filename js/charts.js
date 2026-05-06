@@ -185,3 +185,4 @@ function updateChartData(chartId, newLabels, newData) {
         chart.update();
     }
 }
+
