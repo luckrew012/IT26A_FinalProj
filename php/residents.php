@@ -14,7 +14,12 @@ $residents = $pdo->query("
 ")->fetchAll();
 
 // Get houses for dropdown
-$houses = $pdo->query("SELECT id, house_number, block FROM houses ORDER BY house_number")->fetchAll();
+$houses = $pdo->query("
+    SELECT id, house_number, block 
+    FROM houses 
+    WHERE status = 'Vacant' 
+    ORDER BY house_number
+")->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="en">
