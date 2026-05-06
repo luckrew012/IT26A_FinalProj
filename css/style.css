@@ -490,9 +490,16 @@ a {
 
 .chart-container {
     position: relative;
-    height: 300px; /* Adjust this value as needed */
+    height: 250px; /* Adjust this number to make it smaller or larger */
     width: 100%;
-    margin-bottom: 20px;
+}
+
+.chart-card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px; /* Prevents the chart from becoming too wide */
+    margin: 10px;
 }
 
 canvas {

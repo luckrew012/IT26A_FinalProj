@@ -1,6 +1,5 @@
 <?php
 require_once 'config/database.php';
-
 requireLogin();
 
 $pdo = getConnection();
@@ -217,27 +216,25 @@ $recentComplaints = $pdo->query("
     <script>
         // Dynamic chart data from PHP
         const chartData = {
-        residentsPerBlock: {
-            labels: <?php echo json_encode(array_column($blockData, 'block')); ?>,
-            data: <?php echo json_encode(array_map('intval', array_column($blockData, 'count'))); ?>
-        },
-        houseOccupancy: {
-            labels: <?php echo json_encode(array_map(function($item) {
-                return ucfirst($item['status']);
-            }, $occupancyData)); ?>,
-            data: <?php echo json_encode(array_map('intval', array_column($occupancyData, 'count'))); ?>
-        },
-        complaintStatus: {
-            labels: <?php echo json_encode(array_map(function($item) {
-                return ucfirst(str_replace('_', ' ', $item['status']));
-            }, $complaintData)); ?>,
-            data: <?php echo json_encode(array_map('intval', array_column($complaintData, 'count'))); ?>
-        }
-    };
-</script>
-
-<!-- Load scripts in order -->
-<script src="../js/charts.js"></script>
-<script src="../js/main.js"></script>
+            residentsPerBlock: {
+                labels: <?php echo json_encode(array_column($blockData, 'block')); ?>,
+                data: <?php echo json_encode(array_map('intval', array_column($blockData, 'count'))); ?>
+            },
+            houseOccupancy: {
+                labels: <?php echo json_encode(array_map(function($item) {
+                    return ucfirst($item['status']);
+                }, $occupancyData)); ?>,
+                data: <?php echo json_encode(array_map('intval', array_column($occupancyData, 'count'))); ?>
+            },
+            complaintStatus: {
+                labels: <?php echo json_encode(array_map(function($item) {
+                    return ucfirst(str_replace('_', ' ', $item['status']));
+                }, $complaintData)); ?>,
+                data: <?php echo json_encode(array_map('intval', array_column($complaintData, 'count'))); ?>
+            }
+        };
+    </script>
+    <script src="../js/charts.js"></script>
+    <script src="../js/main.js"></script>
 </body>
 </html>
