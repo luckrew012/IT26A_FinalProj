@@ -49,11 +49,11 @@ $recentComplaints = $pdo->query("
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - Subdivision Homeowner Record System</title>
-    <link rel="preconnect" href="[fonts.googleapis.com](https://fonts.googleapis.com)">
-    <link rel="preconnect" href="[fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
-    <link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap)" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
-    <script src="[cdn.jsdelivr.net](https://cdn.jsdelivr.net/npm/chart.js)"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div class="dashboard">
@@ -213,28 +213,34 @@ $recentComplaints = $pdo->query("
         </main>
     </div>
 
+    <!-- FIXED: Load charts.js FIRST, then update with real data -->
+    <script src="../js/charts.js"></script>
     <script>
-        // Dynamic chart data from PHP
-        const chartData = {
-            residentsPerBlock: {
-                labels: <?php echo json_encode(array_column($blockData, 'block')); ?>,
-                data: <?php echo json_encode(array_map('intval', array_column($blockData, 'count'))); ?>
-            },
-            houseOccupancy: {
-                labels: <?php echo json_encode(array_map(function($item) {
+        // Update charts with REAL database data
+        document.addEventListener('DOMContentLoaded', function() {
+            // Residents per Block BAR CHART ✅
+            updateChartData('residentsChart', 
+                <?php echo json_encode(array_column($blockData, 'block')); ?>,
+                <?php echo json_encode(array_map('intval', array_column($blockData, 'count'))); ?>
+            );
+            
+            // House Occupancy PIE CHART ✅
+            updateChartData('occupancyChart',
+                <?php echo json_encode(array_map(function($item) {
                     return ucfirst($item['status']);
                 }, $occupancyData)); ?>,
-                data: <?php echo json_encode(array_map('intval', array_column($occupancyData, 'count'))); ?>
-            },
-            complaintStatus: {
-                labels: <?php echo json_encode(array_map(function($item) {
+                <?php echo json_encode(array_map('intval', array_column($occupancyData, 'count'))); ?>
+            );
+            
+            // Complaint Status DOUGHNUT CHART ✅
+            updateChartData('complaintsChart',
+                <?php echo json_encode(array_map(function($item) {
                     return ucfirst(str_replace('_', ' ', $item['status']));
                 }, $complaintData)); ?>,
-                data: <?php echo json_encode(array_map('intval', array_column($complaintData, 'count'))); ?>
-            }
-        };
+                <?php echo json_encode(array_map('intval', array_column($complaintData, 'count'))); ?>
+            );
+        });
     </script>
-    <script src="../js/charts.js"></script>
     <script src="../js/main.js"></script>
 </body>
 </html>
