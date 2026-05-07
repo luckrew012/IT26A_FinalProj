@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Subdivision System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .login-container { max-width: 400px; width: 100%; }
+        .login-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .login-header { text-align: center; margin-bottom: 30px; }
+        .login-header h1 { color: #1f2937; margin-bottom: 8px; font-size: 2rem; }
+        .login-header p { color: #6b7280; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; color: #374151; font-weight: 500; }
+        .form-control {
+            width: 100%; padding: 14px 16px; border: 2px solid #e5e7eb;
+            border-radius: 12px; font-size: 16px; transition: all 0.3s;
+        }
+        .form-control:focus { outline: none; border-color: #3b82f6; box-shadow: 0 0 0 4px rgba(59,130,246,0.1); }
+        .btn { 
+            width: 100%; padding: 16px; background: #3b82f6; color: white;
+            border: none; border-radius: 12px; font-size: 16px; font-weight: 600;
+            cursor: pointer; transition: all 0.3s;
+        }
+        .btn:hover { background: #2563eb; transform: translateY(-2px); }
+        .text-center { text-align: center; }
+        .text-sm { font-size: 0.875rem; }
+        .mt-6 { margin-top: 24px; }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <h1>Create Account</h1>
+                <p>Join the Homeowner Management System</p>
+            </div>
+
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="full_name">Full Name</label>
+                    <input type="text" id="full_name" name="full_name" class="form-control" placeholder="John Doe" required>
+                </div>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" class="form-control" placeholder="johndoe" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" class="form-control" placeholder="••••••••" required minlength="8">
+                </div>
+                <div class="form-group">
+                    <label for="confirm_password">Confirm Password</label>
+                    <input type="password" id="confirm_password" name="confirm_password" class="form-control" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="btn">Register Account</button>
+            </form>
+
+            <p class="text-center mt-6 text-sm">
+                Already have an account? <a href="login.html" class="text-blue-600 hover:underline">Sign In</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // ✅ Perfect for Live Server
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Simple validation
+            if (data.password !== data.confirm_password) {
+                alert('Passwords do not match!');
+                return;
+            }
+            
+            if (data.password.length < 5) {
+                alert('Password must be 8+ characters!');
+                return;
+            }
+            
+            // Simulate registration
+            this.querySelector('button').textContent = 'Creating...';
+            this.querySelector('button').disabled = true;
+            
+            setTimeout(() => {
+                alert('✅ Account created successfully!\nRedirecting to dashboard...');
+                window.location.href = 'dashboard.html';
+            }, 1500);
+        });
+    </script>
+</body>
+</html>
