@@ -99,7 +99,7 @@ function initResidentsChart() {
     });
 }
 
-// House Occupancy - Pie Chart
+// House Occupancy - Pie Chart WITH PERCENTAGE LABELS ON CHART ✅
 function initOccupancyChart() {
     const ctx = document.getElementById('occupancyChart');
     if (!ctx) return;
@@ -123,6 +123,9 @@ function initOccupancyChart() {
             ...commonOptions,
             plugins: {
                 ...commonOptions.plugins,
+                legend: {
+                    display: false  // Hide legend since we show percentages on chart
+                },
                 tooltip: {
                     callbacks: {
                         label: function(context) {
@@ -131,9 +134,24 @@ function initOccupancyChart() {
                             return `${context.label}: ${context.parsed} (${percentage}%)`;
                         }
                     }
+                },
+                // ✅ DATALABELS PLUGIN - Shows percentage directly on pie slices
+                datalabels: {
+                    color: '#FFFFFF',
+                    font: {
+                        weight: 'bold',
+                        family: "'Inter', sans-serif",
+                        size: 12
+                    },
+                    formatter: function(value, ctx) {
+                        const total = ctx.dataset.data.reduce((a, b) => a + b, 0);
+                        const percentage = ((value / total) * 100).toFixed(0);
+                        return percentage + '%';
+                    }
                 }
             }
-        }
+        },
+        plugins: [ChartDataLabels]  // ✅ Enable datalabels plugin
     });
 }
 
