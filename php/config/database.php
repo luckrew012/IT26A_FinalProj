@@ -1,8 +1,4 @@
 <?php
-/**
- * Database Configuration
- * Subdivision Homeowner Record System
- */
 
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'subdivisiondb');
