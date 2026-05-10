@@ -59,7 +59,7 @@ $flash = getFlashMessage();
             </form>
 
             <p style="text-align: center; margin-top: 24px; font-size: 0.875rem;">
-                Already have an account? <a href="login.php">Sign In</a>
+                Already have an account? <a href="login.php"style="color: #4f46e5; text-decoration: none; font-weight: 600;">Sign in</a>
             </p>
         </div>
     </div>
