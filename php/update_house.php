@@ -7,6 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
+
 $id = intval($_POST['id']);
 $house_number = sanitize($_POST['house_number']);
 $block = sanitize($_POST['block']);
