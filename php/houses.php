@@ -277,7 +277,7 @@ $houses = $pdo->query("SELECT * FROM houses ORDER BY house_number")->fetchAll();
         function openEditModal(modalId, data) {
             const modal = document.getElementById(modalId);
             if (!modal) return;
-
+            
             document.getElementById('edit_id').value = data.id;
             document.getElementById('edit_house_number').value = data.house_number;
             document.getElementById('edit_block').value = data.block;
