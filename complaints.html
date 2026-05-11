@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Residents - Subdivision Homeowner Record System</title>
+    <title>Complaints - Subdivision Homeowner Record System</title>
     <link rel="preconnect" href="[fonts.googleapis.com](https://fonts.googleapis.com)">
     <link rel="preconnect" href="[fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
     <link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap)" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="dashboard">
-        <!-- Sidebar (same as houses.html) -->
+        <!-- Sidebar -->
         <aside class="sidebar">
             <div class="sidebar-header">
                 <div class="logo">
@@ -41,13 +41,13 @@
                         </svg>
                         Houses
                     </a>
-                    <a href="residents.html" class="nav-link active">
+                    <a href="residents.html" class="nav-link">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
                         </svg>
                         Residents
                     </a>
-                    <a href="complaints.html" class="nav-link">
+                    <a href="complaints.html" class="nav-link active">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
                         </svg>
@@ -57,7 +57,7 @@
 
                 <div class="nav-section">
                     <div class="nav-section-title">Account</div>
-                    <a href="index.html" class="nav-link">
+                    <a href="login.html" class="nav-link">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
                         </svg>
@@ -71,15 +71,15 @@
         <main class="main-content">
             <header class="header">
                 <div class="header-title">
-                    <h1>Residents Management</h1>
-                    <p>Manage all resident records in the subdivision</p>
+                    <h1>Complaints Management</h1>
+                    <p>Track and manage resident complaints</p>
                 </div>
                 <div class="header-actions">
-                    <button class="btn btn-primary" data-modal-open="addResidentModal">
+                    <button class="btn btn-primary" data-modal-open="addComplaintModal">
                         <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
                         </svg>
-                        Add Resident
+                        New Complaint
                     </button>
                 </div>
             </header>
@@ -90,18 +90,20 @@
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                         </svg>
-                        <input type="text" placeholder="Search residents...">
+                        <input type="text" placeholder="Search complaints...">
                     </div>
                     <select class="filter-select">
-                        <option value="">All Houses</option>
-                        <option value="H-001">H-001</option>
-                        <option value="H-002">H-002</option>
-                        <option value="H-003">H-003</option>
+                        <option value="">All Status</option>
+                        <option value="pending">Pending</option>
+                        <option value="in_progress">In Progress</option>
+                        <option value="resolved">Resolved</option>
                     </select>
                     <select class="filter-select">
-                        <option value="">All Status</option>
-                        <option value="active">Active</option>
-                        <option value="inactive">Inactive</option>
+                        <option value="">All Categories</option>
+                        <option value="noise">Noise</option>
+                        <option value="maintenance">Maintenance</option>
+                        <option value="security">Security</option>
+                        <option value="utilities">Utilities</option>
                     </select>
                 </div>
 
@@ -111,23 +113,23 @@
                             <table class="data-table">
                                 <thead>
                                     <tr>
-                                        <th>Name</th>
-                                        <th>House No.</th>
-                                        <th>Contact</th>
-                                        <th>Email</th>
-                                        <th>Move-in Date</th>
+                                        <th>ID</th>
+                                        <th>Subject</th>
+                                        <th>Filed By</th>
+                                        <th>Category</th>
+                                        <th>Date Filed</th>
                                         <th>Status</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td><strong>Juan Dela Cruz</strong></td>
-                                        <td>H-001</td>
-                                        <td>+63 917 123 4567</td>
-                                        <td>juan.delacruz@email.com</td>
-                                        <td>Jan 15, 2023</td>
-                                        <td><span class="badge badge-success">Active</span></td>
+                                        <td><strong>#C-001</strong></td>
+                                        <td>Loud music at night</td>
+                                        <td>Juan Dela Cruz</td>
+                                        <td>Noise</td>
+                                        <td>May 1, 2026</td>
+                                        <td><span class="badge badge-warning">Pending</span></td>
                                         <td>
                                             <div class="action-buttons">
                                                 <button class="btn-icon edit" title="Edit">
@@ -144,12 +146,12 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><strong>Maria Santos</strong></td>
-                                        <td>H-002</td>
-                                        <td>+63 918 234 5678</td>
-                                        <td>maria.santos@email.com</td>
-                                        <td>Mar 22, 2023</td>
-                                        <td><span class="badge badge-success">Active</span></td>
+                                        <td><strong>#C-002</strong></td>
+                                        <td>Street light not working</td>
+                                        <td>Maria Santos</td>
+                                        <td>Maintenance</td>
+                                        <td>Apr 28, 2026</td>
+                                        <td><span class="badge badge-info">In Progress</span></td>
                                         <td>
                                             <div class="action-buttons">
                                                 <button class="btn-icon edit" title="Edit">
@@ -166,12 +168,12 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><strong>Pedro Reyes</strong></td>
-                                        <td>H-005</td>
-                                        <td>+63 919 345 6789</td>
-                                        <td>pedro.reyes@email.com</td>
-                                        <td>Jun 10, 2022</td>
-                                        <td><span class="badge badge-success">Active</span></td>
+                                        <td><strong>#C-003</strong></td>
+                                        <td>Garbage not collected</td>
+                                        <td>Pedro Reyes</td>
+                                        <td>Utilities</td>
+                                        <td>Apr 25, 2026</td>
+                                        <td><span class="badge badge-success">Resolved</span></td>
                                         <td>
                                             <div class="action-buttons">
                                                 <button class="btn-icon edit" title="Edit">
@@ -188,12 +190,12 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><strong>Ana Garcia</strong></td>
-                                        <td>H-002</td>
-                                        <td>+63 920 456 7890</td>
-                                        <td>ana.garcia@email.com</td>
-                                        <td>Sep 5, 2021</td>
-                                        <td><span class="badge badge-warning">Inactive</span></td>
+                                        <td><strong>#C-004</strong></td>
+                                        <td>Water pipe leakage</td>
+                                        <td>Ana Garcia</td>
+                                        <td>Maintenance</td>
+                                        <td>Apr 22, 2026</td>
+                                        <td><span class="badge badge-danger">Urgent</span></td>
                                         <td>
                                             <div class="action-buttons">
                                                 <button class="btn-icon edit" title="Edit">
@@ -218,11 +220,11 @@
         </main>
     </div>
 
-    <!-- Add Resident Modal -->
-    <div class="modal-overlay" id="addResidentModal">
+    <!-- Add Complaint Modal -->
+    <div class="modal-overlay" id="addComplaintModal">
         <div class="modal">
             <div class="modal-header">
-                <h3>Add New Resident</h3>
+                <h3>File New Complaint</h3>
                 <button class="modal-close" data-modal-close>
                     <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
@@ -231,51 +233,58 @@
             </div>
             <div class="modal-body">
                 <form action="#" method="POST">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="first_name">First Name</label>
-                            <input type="text" id="first_name" name="first_name" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="last_name">Last Name</label>
-                            <input type="text" id="last_name" name="last_name" class="form-control" required>
-                        </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" class="form-control" placeholder="Brief description of the complaint" required>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="house_id">House</label>
-                            <select id="house_id" name="house_id" class="form-control" required>
-                                <option value="">Select House</option>
-                                <option value="1">H-001 - Block A</option>
-                                <option value="2">H-002 - Block A</option>
-                                <option value="3">H-003 - Block B</option>
+                            <label for="resident_id">Filed By</label>
+                            <select id="resident_id" name="resident_id" class="form-control" required>
+                                <option value="">Select Resident</option>
+                                <option value="1">Juan Dela Cruz (H-001)</option>
+                                <option value="2">Maria Santos (H-002)</option>
+                                <option value="3">Pedro Reyes (H-005)</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="contact">Contact Number</label>
-                            <input type="tel" id="contact" name="contact" class="form-control" placeholder="+63 9XX XXX XXXX" required>
+                            <label for="category">Category</label>
+                            <select id="category" name="category" class="form-control" required>
+                                <option value="">Select Category</option>
+                                <option value="noise">Noise</option>
+                                <option value="maintenance">Maintenance</option>
+                                <option value="security">Security</option>
+                                <option value="utilities">Utilities</option>
+                                <option value="other">Other</option>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" class="form-control" required>
+                        <label for="description">Description</label>
+                        <textarea id="description" name="description" class="form-control" rows="4" placeholder="Detailed description of the complaint..." required></textarea>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="move_in_date">Move-in Date</label>
-                            <input type="date" id="move_in_date" name="move_in_date" class="form-control" required>
+                            <label for="priority">Priority</label>
+                            <select id="priority" name="priority" class="form-control" required>
+                                <option value="low">Low</option>
+                                <option value="medium" selected>Medium</option>
+                                <option value="high">High</option>
+                                <option value="urgent">Urgent</option>
+                            </select>
                         </div>
                         <div class="form-group">
-                            <label for="resident_status">Status</label>
-                            <select id="resident_status" name="status" class="form-control" required>
-                                <option value="active">Active</option>
-                                <option value="inactive">Inactive</option>
+                            <label for="complaint_status">Status</label>
+                            <select id="complaint_status" name="status" class="form-control" required>
+                                <option value="pending" selected>Pending</option>
+                                <option value="in_progress">In Progress</option>
+                                <option value="resolved">Resolved</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-actions">
                         <button type="button" class="btn btn-secondary" data-modal-close>Cancel</button>
-                        <button type="submit" class="btn btn-primary">Save Resident</button>
+                        <button type="submit" class="btn btn-primary">Submit Complaint</button>
                     </div>
                 </form>
             </div>

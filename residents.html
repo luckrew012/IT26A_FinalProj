@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Houses - Subdivision Homeowner Record System</title>
+    <title>Residents - Subdivision Homeowner Record System</title>
     <link rel="preconnect" href="[fonts.googleapis.com](https://fonts.googleapis.com)">
     <link rel="preconnect" href="[fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
     <link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap)" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="dashboard">
-        <!-- Sidebar -->
+        <!-- Sidebar (same as houses.html) -->
         <aside class="sidebar">
             <div class="sidebar-header">
                 <div class="logo">
@@ -35,13 +35,13 @@
 
                 <div class="nav-section">
                     <div class="nav-section-title">Management</div>
-                    <a href="houses.html" class="nav-link active">
+                    <a href="houses.html" class="nav-link">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
                         </svg>
                         Houses
                     </a>
-                    <a href="residents.html" class="nav-link">
+                    <a href="residents.html" class="nav-link active">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
                         </svg>
@@ -69,73 +69,65 @@
 
         <!-- Main Content -->
         <main class="main-content">
-            <!-- Header -->
             <header class="header">
                 <div class="header-title">
-                    <h1>Houses Management</h1>
-                    <p>Manage all house records in the subdivision</p>
+                    <h1>Residents Management</h1>
+                    <p>Manage all resident records in the subdivision</p>
                 </div>
                 <div class="header-actions">
-                    <button class="btn btn-primary" data-modal-open="addHouseModal">
+                    <button class="btn btn-primary" data-modal-open="addResidentModal">
                         <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
                         </svg>
-                        Add House
+                        Add Resident
                     </button>
                 </div>
             </header>
 
-            <!-- Page Content -->
             <div class="page-content">
-                <!-- Toolbar -->
                 <div class="toolbar">
                     <div class="search-box">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                         </svg>
-                        <input type="text" placeholder="Search houses...">
+                        <input type="text" placeholder="Search residents...">
                     </div>
                     <select class="filter-select">
-                        <option value="">All Blocks</option>
-                        <option value="A">Block A</option>
-                        <option value="B">Block B</option>
-                        <option value="C">Block C</option>
-                        <option value="D">Block D</option>
-                        <option value="E">Block E</option>
-                        <option value="F">Block F</option>
+                        <option value="">All Houses</option>
+                        <option value="H-001">H-001</option>
+                        <option value="H-002">H-002</option>
+                        <option value="H-003">H-003</option>
                     </select>
                     <select class="filter-select">
                         <option value="">All Status</option>
-                        <option value="occupied">Occupied</option>
-                        <option value="vacant">Vacant</option>
-                        <option value="maintenance">Under Maintenance</option>
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
                     </select>
                 </div>
 
-                <!-- Houses Table -->
                 <div class="card">
                     <div class="card-body" style="padding: 0;">
                         <div class="table-container">
                             <table class="data-table">
                                 <thead>
                                     <tr>
+                                        <th>Name</th>
                                         <th>House No.</th>
-                                        <th>Block</th>
-                                        <th>Street</th>
-                                        <th>Type</th>
-                                        <th>Area (sqm)</th>
+                                        <th>Contact</th>
+                                        <th>Email</th>
+                                        <th>Move-in Date</th>
                                         <th>Status</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td><strong>H-001</strong></td>
-                                        <td>Block A</td>
-                                        <td>Mango Street</td>
-                                        <td>Single Family</td>
-                                        <td>150</td>
-                                        <td><span class="badge badge-success">Occupied</span></td>
+                                        <td><strong>Juan Dela Cruz</strong></td>
+                                        <td>H-001</td>
+                                        <td>+63 917 123 4567</td>
+                                        <td>juan.delacruz@email.com</td>
+                                        <td>Jan 15, 2023</td>
+                                        <td><span class="badge badge-success">Active</span></td>
                                         <td>
                                             <div class="action-buttons">
                                                 <button class="btn-icon edit" title="Edit">
@@ -152,12 +144,12 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><strong>H-002</strong></td>
-                                        <td>Block A</td>
-                                        <td>Mango Street</td>
-                                        <td>Duplex</td>
-                                        <td>200</td>
-                                        <td><span class="badge badge-success">Occupied</span></td>
+                                        <td><strong>Maria Santos</strong></td>
+                                        <td>H-002</td>
+                                        <td>+63 918 234 5678</td>
+                                        <td>maria.santos@email.com</td>
+                                        <td>Mar 22, 2023</td>
+                                        <td><span class="badge badge-success">Active</span></td>
                                         <td>
                                             <div class="action-buttons">
                                                 <button class="btn-icon edit" title="Edit">
@@ -174,12 +166,12 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><strong>H-003</strong></td>
-                                        <td>Block B</td>
-                                        <td>Palm Avenue</td>
-                                        <td>Single Family</td>
-                                        <td>180</td>
-                                        <td><span class="badge badge-danger">Vacant</span></td>
+                                        <td><strong>Pedro Reyes</strong></td>
+                                        <td>H-005</td>
+                                        <td>+63 919 345 6789</td>
+                                        <td>pedro.reyes@email.com</td>
+                                        <td>Jun 10, 2022</td>
+                                        <td><span class="badge badge-success">Active</span></td>
                                         <td>
                                             <div class="action-buttons">
                                                 <button class="btn-icon edit" title="Edit">
@@ -196,34 +188,12 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><strong>H-004</strong></td>
-                                        <td>Block B</td>
-                                        <td>Palm Avenue</td>
-                                        <td>Townhouse</td>
-                                        <td>120</td>
-                                        <td><span class="badge badge-warning">Maintenance</span></td>
-                                        <td>
-                                            <div class="action-buttons">
-                                                <button class="btn-icon edit" title="Edit">
-                                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
-                                                    </svg>
-                                                </button>
-                                                <button class="btn-icon delete" title="Delete">
-                                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>H-005</strong></td>
-                                        <td>Block C</td>
-                                        <td>Acacia Lane</td>
-                                        <td>Single Family</td>
-                                        <td>165</td>
-                                        <td><span class="badge badge-success">Occupied</span></td>
+                                        <td><strong>Ana Garcia</strong></td>
+                                        <td>H-002</td>
+                                        <td>+63 920 456 7890</td>
+                                        <td>ana.garcia@email.com</td>
+                                        <td>Sep 5, 2021</td>
+                                        <td><span class="badge badge-warning">Inactive</span></td>
                                         <td>
                                             <div class="action-buttons">
                                                 <button class="btn-icon edit" title="Edit">
@@ -248,11 +218,11 @@
         </main>
     </div>
 
-    <!-- Add House Modal -->
-    <div class="modal-overlay" id="addHouseModal">
+    <!-- Add Resident Modal -->
+    <div class="modal-overlay" id="addResidentModal">
         <div class="modal">
             <div class="modal-header">
-                <h3>Add New House</h3>
+                <h3>Add New Resident</h3>
                 <button class="modal-close" data-modal-close>
                     <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
@@ -263,54 +233,49 @@
                 <form action="#" method="POST">
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="house_number">House Number</label>
-                            <input type="text" id="house_number" name="house_number" class="form-control" placeholder="e.g., H-006" required>
+                            <label for="first_name">First Name</label>
+                            <input type="text" id="first_name" name="first_name" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="block">Block</label>
-                            <select id="block" name="block" class="form-control" required>
-                                <option value="">Select Block</option>
-                                <option value="A">Block A</option>
-                                <option value="B">Block B</option>
-                                <option value="C">Block C</option>
-                                <option value="D">Block D</option>
-                                <option value="E">Block E</option>
-                                <option value="F">Block F</option>
-                            </select>
+                            <label for="last_name">Last Name</label>
+                            <input type="text" id="last_name" name="last_name" class="form-control" required>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="street">Street</label>
-                            <input type="text" id="street" name="street" class="form-control" placeholder="e.g., Mango Street" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="house_type">House Type</label>
-                            <select id="house_type" name="house_type" class="form-control" required>
-                                <option value="">Select Type</option>
-                                <option value="single">Single Family</option>
-                                <option value="duplex">Duplex</option>
-                                <option value="townhouse">Townhouse</option>
+                            <label for="house_id">House</label>
+                            <select id="house_id" name="house_id" class="form-control" required>
+                                <option value="">Select House</option>
+                                <option value="1">H-001 - Block A</option>
+                                <option value="2">H-002 - Block A</option>
+                                <option value="3">H-003 - Block B</option>
                             </select>
                         </div>
+                        <div class="form-group">
+                            <label for="contact">Contact Number</label>
+                            <input type="tel" id="contact" name="contact" class="form-control" placeholder="+63 9XX XXX XXXX" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="area">Area (sqm)</label>
-                            <input type="number" id="area" name="area" class="form-control" placeholder="e.g., 150" required>
+                            <label for="move_in_date">Move-in Date</label>
+                            <input type="date" id="move_in_date" name="move_in_date" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="status">Status</label>
-                            <select id="status" name="status" class="form-control" required>
-                                <option value="occupied">Occupied</option>
-                                <option value="vacant">Vacant</option>
-                                <option value="maintenance">Under Maintenance</option>
+                            <label for="resident_status">Status</label>
+                            <select id="resident_status" name="status" class="form-control" required>
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-actions">
                         <button type="button" class="btn btn-secondary" data-modal-close>Cancel</button>
-                        <button type="submit" class="btn btn-primary">Save House</button>
+                        <button type="submit" class="btn btn-primary">Save Resident</button>
                     </div>
                 </form>
             </div>
