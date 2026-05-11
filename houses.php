@@ -1,5 +1,5 @@
 <?php
-require_once 'config/database.php';
+require_once 'database.php';
 requireLogin();
 
 $pdo = getConnection();
@@ -21,7 +21,7 @@ $houses = $pdo->query("SELECT * FROM houses ORDER BY house_number")->fetchAll();
 </head>
 <body>
     <div class="dashboard">
-        <?php include 'includes/sidebar.php'; ?>
+        <?php include 'sidebar.php'; ?>
 
         <main class="main-content">
             <header class="header">
@@ -271,7 +271,7 @@ $houses = $pdo->query("SELECT * FROM houses ORDER BY house_number")->fetchAll();
         </div>
     </div>
 
-    <script src="../js/main.js"></script>
+    <script src="main.js"></script>
     <script>
         // Override openEditModal for house-specific field mapping
         function openEditModal(modalId, data) {

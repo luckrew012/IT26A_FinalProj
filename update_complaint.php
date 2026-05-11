@@ -1,5 +1,5 @@
 <?php
-require_once 'config/database.php';
+require_once 'database.php';
 requireLogin();
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {

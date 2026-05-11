@@ -1,5 +1,5 @@
 <?php
-require_once 'config/database.php';
+require_once 'database.php';
 requireLogin();
 
 $pdo = getConnection();
@@ -36,7 +36,7 @@ $residents = $pdo->query("
 </head>
 <body>
     <div class="dashboard">
-        <?php include 'includes/sidebar.php'; ?>
+        <?php include 'sidebar.php'; ?>
 
         <main class="main-content">
             <header class="header">
@@ -281,7 +281,7 @@ $residents = $pdo->query("
         </div>
     </div>
 
-    <script src="../js/main.js"></script>
+    <script src="main.js"></script>
     <script>
         function openEditComplaintModal(data) {
             document.getElementById('edit_complaint_id').value = data.id;

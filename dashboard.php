@@ -1,5 +1,5 @@
 <?php
-require_once 'config/database.php';
+require_once 'database.php';
 requireLogin();
 
 $pdo = getConnection();
@@ -63,7 +63,7 @@ $recentComplaints = $pdo->query("
 <body>
     <div class="dashboard">
         <!-- Sidebar -->
-        <?php include 'includes/sidebar.php'; ?>
+        <?php include 'sidebar.php'; ?>
 
         <!-- Main Content -->
         <main class="main-content">
@@ -219,7 +219,7 @@ $recentComplaints = $pdo->query("
     </div>
 
     <!-- FIXED: Load charts.js FIRST, then update with real data -->
-    <script src="../js/charts.js"></script>
+    <script src="charts.js"></script>
     <script>
         // Update charts with REAL database data
         document.addEventListener('DOMContentLoaded', function() {
@@ -246,6 +246,6 @@ $recentComplaints = $pdo->query("
             );
         });
     </script>
-    <script src="../js/main.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <?php
-require_once 'config/database.php';
+require_once 'database.php';
 requireLogin();
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -7,7 +7,6 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-$id = intval($_POST['id']);
 $house_id = intval($_POST['house_id']);
 $first_name = sanitize($_POST['first_name']);
 $last_name = sanitize($_POST['last_name']);
@@ -19,15 +18,14 @@ $status = sanitize($_POST['status']);
 try {
     $pdo = getConnection();
     $stmt = $pdo->prepare("
-        UPDATE residents 
-        SET house_id = ?, first_name = ?, last_name = ?, contact_number = ?, email = ?, move_in_date = ?, status = ?
-        WHERE id = ?
+        INSERT INTO residents (house_id, first_name, last_name, contact_number, email, move_in_date, status)
+        VALUES (?, ?, ?, ?, ?, ?, ?)
     ");
-    $stmt->execute([$house_id, $first_name, $last_name, $contact_number, $email, $move_in_date, $status, $id]);
+    $stmt->execute([$house_id, $first_name, $last_name, $contact_number, $email, $move_in_date, $status]);
     
-    setFlashMessage('success', 'Resident updated successfully.');
+    setFlashMessage('success', 'Resident added successfully.');
 } catch (PDOException $e) {
-    setFlashMessage('danger', 'Failed to update resident. Please try again.');
+    setFlashMessage('danger', 'Failed to add resident. Please try again.');
 }
 
 header("Location: residents.php");
