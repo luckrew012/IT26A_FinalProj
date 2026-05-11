@@ -32,7 +32,7 @@ $residents = $pdo->query("
     <link rel="preconnect" href="[fonts.googleapis.com](https://fonts.googleapis.com)">
     <link rel="preconnect" href="[fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
     <link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap)" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="dashboard">
