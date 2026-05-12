@@ -84,14 +84,12 @@ a {
     height: 36px;
     color: white;
 }
-
 .login-header h1 {
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--text-dark);
     margin-bottom: 4px;
 }
-
 .login-header p {
     color: var(--text-muted);
     font-size: 0.875rem;
@@ -100,7 +98,6 @@ a {
 .form-group {
     margin-bottom: 20px;
 }
-
 .form-group label {
     display: block;
     font-size: 0.875rem;
