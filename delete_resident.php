@@ -8,7 +8,6 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 $id = intval($_POST['id']);
-
 try {
     $pdo = getConnection();
     $stmt = $pdo->prepare("DELETE FROM residents WHERE id = ?");
@@ -18,7 +17,6 @@ try {
 } catch (PDOException $e) {
     setFlashMessage('danger', 'Failed to delete resident. They may have associated complaints.');
 }
-
 header("Location: residents.php");
 exit;
 ?>
