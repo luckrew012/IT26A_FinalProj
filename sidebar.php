@@ -18,7 +18,6 @@
                 Dashboard
             </a>
         </div>
-
         <div class="nav-section">
             <div class="nav-section-title">Management</div>
             <a href="houses.php" class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'houses.php' ? 'active' : ''; ?>">
